@@ -15,7 +15,7 @@ requirejs.config({
         bootstrap: 'bootstrap-sass-official/assets/javascripts/bootstrap',
         react: 'react/react',
         cryptojs: 'crypto-js/core',
-        socketio: 'socket.io/lib/index'
+        socketio: 'socket.io-client/socket.io'
     }
 });
 
