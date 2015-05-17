@@ -11,11 +11,14 @@ requirejs.config({
         // is using jQuery 1.9.0 located at
         // js/lib/jquery-1.9.0.js, relative to
         // the HTML page.
-        jquery: '/static/js/jquery/dist/jquery',
-        bootstrap: '/static/js/bootstrap-sass-official/assets/javascripts/bootstrap'
+        jquery: '/static/js/libs/jquery/dist/jquery',
+        bootstrap: '/static/js/libs/bootstrap-sass-official/assets/javascripts/bootstrap',
+        react: '/static/js/libs/react/react'
     }
 });
 
-requirejs(['jquery', 'bootstrap'], function($) {
-    console.log($("#QQevent"));
+requirejs(['jquery', 'bootstrap', 'react'], function($, Bootstrap, React) {
+  console.log($);
+  console.log(Bootstrap);
+  console.log(React);
 });
