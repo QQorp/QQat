@@ -1,14 +1,33 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+'/views/index.html'));
 });
 
+app.get('/chat', function (req, res) {
+  res.sendFile(path.join(__dirname+'/views/chat.html'));
+});
+
 app.use('/static', express.static('public'));
 
-var server = app.listen(3000, function () {
+// SocketIO section
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
+
+
+var server = http.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);

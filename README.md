@@ -22,7 +22,7 @@ npm install -g bower
 ```shell
 git clone https://github.com/QQorp/QQat.git
 cd QQat/
-npm install && bower install
+npm install --dev && bower install
 grunt build
 ```
 
