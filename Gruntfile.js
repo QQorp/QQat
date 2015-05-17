@@ -18,21 +18,21 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'bower_components/',
         src: '**/*.js',
-        dest: 'public/js'
+        dest: 'public/js/libs'
       },
       maps: {
         expand: true,
         cwd: 'bower_components/',
         src: '**/*.map',
-        dest: 'public/js'
+        dest: 'public/js/libs'
       },
       scss: {
         expand: true,
         cwd: 'bower_components/',
         src: '**/*.scss',
-        dest: 'scss'
+        dest: 'scss/libs'
       },
-      fontawesome: {
+      fontawesome_fonts: {
         expand: true,
         cwd: 'bower_components/fontawesome/',
         src: [
@@ -57,7 +57,11 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ["public/fonts"],
+    clean: ["scss/libs/",
+            "public/js/libs/",
+            "public/fonts/",
+            "public/css"
+            ],
 
     express: {
       options: {
