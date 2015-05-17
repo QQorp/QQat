@@ -7653,5 +7653,5 @@ button.close {
 .fa-medium:before {
   content: ""; }
 
-.qq {
-  visibility: visible; }
+#main {
+  margin-top: 80px; }
