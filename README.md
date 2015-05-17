@@ -31,3 +31,9 @@ Run grunt and get ready to hack !
 ```shell
 grunt
 ```
+
+## After pulling a modification
+```shell
+npm update && bower update
+grunt rebuild
+```
