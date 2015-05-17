@@ -1,0 +1,21 @@
+{
+  "name": "QQat",
+  "version": "0.0.1",
+  "homepage": "https://github.com/QQorp/QQat",
+  "authors": [
+    "kevinbacas <bacas.kevin@hotmail.fr>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.17",
+    "bootstrap-sass-official": "~3.3.4",
+    "fontawesome": "~4.3.0"
+  }
+}
