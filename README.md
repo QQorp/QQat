@@ -3,3 +3,4 @@ A **powerfull thing** to do **insane stuff** ! _100% true_ ! _100% free_ ! _0% b
 
 # Contributors
 - [Kevin Bacas](https://github.com/KevinBacas)
+- [Louis Delbosc](https://github.com/LouisDelbosc)
