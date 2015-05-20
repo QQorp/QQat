@@ -29,14 +29,8 @@ The chat will be build on multiple layers :
 
 - [RequireJS](http://requirejs.org/)
 - [SASS](http://sass-lang.com/)
-  - [PhantomJS](http://phantomjs.org/screen-capture.html)
-    - Emulate a headerless browser and test the client side
-
-  - [QUnit](https://qunitjs.com/)
-    - A JavaScript Unit Testing framework
-
-  - [JSHint](http://jshint.com/)
-    - A JavaScript Code Quality Tool
+- [Mocha](http://mochajs.org/)
+  - Javascript test framework
 
 ## DevOps
 A server with [Drone.io](drone.io) test the server and the client side on each build as integration test. This server is connected to a [GitHub](https://github.com/) via webhooks to handle the code and send notification to drone on each commit. A single test server and a single production server handling a stable version of the software in order to demonstrate what QQat can do !
