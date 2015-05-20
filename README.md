@@ -50,7 +50,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>IM
 - [Kevin Bacas](https://github.com/KevinBacas)
 - [Louis Delbosc](https://github.com/LouisDelbosc)
 
-# How to contribute to the project
+# Installing everything on Docker
+First, you need to [install Docker](https://docs.docker.com/installation/).
+
+Then, build the project :
+
+```shell
+docker build -t qqat .
+```
+
+And finally, run the server :
+
+```shell
+docker run -p 3000:3000 qqat
+```
+
+# Installing everything on your system
 ## Requirements
 The development environment requires [npm](https://www.npmjs.com/), [grunt](http://gruntjs.com/) and [bower](http://bower.io/).
 
@@ -84,6 +99,14 @@ grunt
 ## After pulling a modification
 
 ```shell
+# Updating installation components
 npm update && bower update
+# Cleaning & building the project
 grunt rebuild
+```
+
+# Running tests
+
+```shell
+npm test
 ```
