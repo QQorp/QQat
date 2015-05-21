@@ -30,5 +30,6 @@ bower_components
 # Ignore file after grunt's copy
 scss/libs/
 public/js/libs/
+public/js/components/
 public/fonts/
 public/css/
