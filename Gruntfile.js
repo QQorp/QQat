@@ -155,7 +155,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-react');
 
   grunt.registerTask('build', ['copy', 'sass', 'react']);
-  grunt.registerTask('rebuild', ['clean', 'copy', 'sass']);
+  grunt.registerTask('rebuild', ['clean', 'build']);
   grunt.registerTask('dev', ['express:dev', 'watch']);
   grunt.registerTask('default', ['dev']);
 
