@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 
     clean: ["scss/libs/",
             "public/js/libs/",
-            "public/js/components"
+            "public/js/components",
             "public/fonts/",
             "public/css",
             ],
