@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          outputStyle: 'compressed'
+          outputStyle: 'expanded'
         },
         files: {
           'public/css/app.css': 'scss/app.scss',
@@ -53,15 +53,20 @@ module.exports = function(grunt) {
         files: 'Gruntfile.js'
       },
       sass: {
-        files: '**/*.scss',
+        files: ['scss/**/*.scss', 'scss/*.scss'],
         tasks: ['sass']
+      },
+      react: {
+        files: ['jsx/**/*.jsx', 'jsx/*.jsx'],
+        tasks: ['react']
       }
     },
 
     clean: ["scss/libs/",
             "public/js/libs/",
+            "public/js/components"
             "public/fonts/",
-            "public/css"
+            "public/css",
             ],
 
     express: {
@@ -125,6 +130,20 @@ module.exports = function(grunt) {
           script: 'test.js'
         }
       }
+    },
+
+    react: {
+      dynamic_mappings: {
+        files: [
+          {
+            expand: true,
+            cwd: 'jsx',
+            src: ['**/*.jsx', '*.jsx'],
+            dest: 'public/js/components',
+            ext: '.js'
+          }
+        ]
+      }
     }
   });
 
@@ -133,10 +152,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-react');
 
-  grunt.registerTask('build', ['copy', 'sass']);
+  grunt.registerTask('build', ['copy', 'sass', 'react']);
   grunt.registerTask('rebuild', ['clean', 'copy', 'sass']);
   grunt.registerTask('dev', ['express:dev', 'watch']);
   grunt.registerTask('default', ['dev']);
 
-}
+};
