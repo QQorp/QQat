@@ -69,12 +69,12 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ["scss/libs/",
-            "public/js/libs/",
-            "public/js/components",
-            "public/fonts/",
-            "public/css"
-    ],
+    clean: {
+      scss: ["scss/libs/"],
+      javascripts: ["public/js/libs/", "public/js/components"],
+      fonts: ["public/fonts/"],
+      css: ["public/css"]
+    },
 
     express: {
       options: {
