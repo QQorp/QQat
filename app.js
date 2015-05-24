@@ -1,39 +1,56 @@
-var express = require('express');
-var app = express();
-var path = require('path');
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+(function(){
+  'use strict';
 
-app.get('/', function (req, res) {
-  "use strict";
-
-  res.sendFile(path.join(__dirname+'/views/index.html'));
-});
-
-app.get('/chat', function (req, res) {
-  "use strict";
-
-  res.sendFile(path.join(__dirname+'/views/chat.html'));
-});
-
-app.use('/static', express.static('public'));
-
-// SocketIO section
-io.on('connection', function(socket){
-  "use strict";
-
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+  var config = require('./config');
+  var express = require('express');
+  var app = express();
+  var path = require('path');
+  var http = require('http').Server(app);
+  var io = require('socket.io')(http);
+  var mongoose = require('mongoose');
+  mongoose.connect(config.db.development, function (err) {
+    if (err) {
+      throw err;
+    }
   });
 
-  socket.on('disconnect', function(){
+  var Message = require('./models/message');
+
+  app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname+'/views/index.html'));
   });
-});
 
-var server = http.listen(3000, function () {
-  "use strict";
+  app.get('/chat', function (req, res) {
+    res.sendFile(path.join(__dirname+'/views/chat.html'));
+  });
 
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
-});
+  app.use('/static', express.static('public'));
+
+  // SocketIO section
+  io.on('connection', function(socket){
+    Message.find({}, function(err, docs){
+      socket.emit('previous chat messages', docs);
+    });
+
+    socket.on('chat message', function(msg){
+      var m = new Message({ content: msg });
+      m.save(function(err){
+        if(err){
+          throw err;
+        }
+      });
+      io.emit('chat message', msg);
+    });
+
+    socket.on('disconnect', function(){
+      // Does nothing !
+    });
+  });
+
+  var server = http.listen(3000, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('Example app listening at http://%s:%s', host, port);
+  });
+
+})();
