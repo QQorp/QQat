@@ -9,18 +9,16 @@
   describe('Models: Message', function () {
 
     describe('#create()', function () {
-      it('should create a new Message', function (done) {
-        // Create a User object to pass to User.create()
+      var testContent = 'Hello world !';
+
+      it('Should create a new Message', function (done) {
         var m = {
-          content: 'Hello world !'
+          content: testContent
         };
 
         Message.create(m, function (err, createdMessage) {
-          // Confirm that that an error does not exist
           should.not.exist(err);
-          // verify that the returned user is what we expect
-          createdMessage.content.should.equal('Hello world !');
-          // Call done to tell mocha that we are done with this test
+          createdMessage.content.should.equal(testContent);
           done();
         });
       });
@@ -40,7 +38,7 @@
     });
 
     describe('#count()', function () {
-      it('Create one element, count({}) should return one element', function(done){
+      it('Should create one message and count() should return one element', function(done){
         var m = new Message({
           content: 'Hello world !'
         });
@@ -58,9 +56,9 @@
     });
 
     describe('#QQ()', function () {
-      it('Creating an empty message, should return "QQ"', function(done){
+      it('Should create a message with an empty string and should return "QQ"', function(done){
         var m = new Message({
-          content: null
+          content: ''
         });
 
         m.QQ().should.equal('QQ');
@@ -68,7 +66,7 @@
       });
 
 
-      it('Creating a regular message, should return the right content', function(done){
+      it('Should create a regular message and should return the right content', function(done){
         var fakeContent = 'Lel';
 
         var m = new Message({
