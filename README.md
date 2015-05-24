@@ -32,6 +32,9 @@ The chat will be build on multiple layers :
 - [Mocha](http://mochajs.org/)
   - Javascript test framework
 
+- [Mongoose](http://mongoosejs.com/)
+  - nodejs driver for MongoDB
+
 ## DevOps
 A server with [Drone.io](drone.io) test the server and the client side on each build as integration test. This server is connected to a [GitHub](https://github.com/) via webhooks to handle the code and send notification to drone on each commit. A single test server and a single production server handling a stable version of the software in order to demonstrate what QQat can do !
 
@@ -51,6 +54,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>IM
 - [Louis Delbosc](https://github.com/LouisDelbosc)
 
 # Installing everything on Docker
+## /!\ **THIS IS NOT WORKING FOR THE MOMENT** /!\
+### *This will be updated soon*
 First, you need to [install Docker](https://docs.docker.com/installation/).
 
 Then, build the project :
@@ -67,7 +72,7 @@ docker run -p 3000:3000 qqat
 
 # Installing everything on your system
 ## Requirements
-The development environment requires [npm](https://www.npmjs.com/), [grunt](http://gruntjs.com/) and [bower](http://bower.io/).
+The development environment requires [npm](https://www.npmjs.com/), [grunt](http://gruntjs.com/) and [bower](http://bower.io/). It also requires [MongoDB](https://www.mongodb.org/) now.
 
 ### Intalling npm
 Go to [this website](https://nodejs.org/download/) and download the installer for you platform and then, run it !
@@ -78,6 +83,19 @@ After installing npm take you favorite CLI and type :
 ```shell
 npm install -g grunt-cli
 npm install -g bower
+```
+
+## Installing mongoose with MongoDB
+Once you installed MongoDB on your computer you just have to configure the **config.js** file at the root of the project. You can configure it like this :
+
+```javascript
+module.exports = {
+ "db": {
+   "development": "mongodb://localhost/qqat-dev",
+   "test": "mongodb://localhost/qqat-test",
+   "production": "mongodb://user:pass@example.com/qqat-prod"
+ }
+};
 ```
 
 ## Installing the application
