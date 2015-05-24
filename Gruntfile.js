@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         },
         files: {
           'public/css/app.css': 'scss/app.scss',
-          'public/css/chat.css': 'scss/chat.scss',
+          'public/css/chat.css': 'scss/chat.scss'
         }
       }
     },
@@ -59,6 +59,13 @@ module.exports = function(grunt) {
       react: {
         files: ['jsx/**/*.jsx', 'jsx/*.jsx'],
         tasks: ['react']
+      },
+      js: {
+        options: {
+          // spawn: false,
+        },
+        files: '**/*.js',
+        tasks: ['test']
       }
     },
 
@@ -66,8 +73,8 @@ module.exports = function(grunt) {
             "public/js/libs/",
             "public/js/components",
             "public/fonts/",
-            "public/css",
-            ],
+            "public/css"
+    ],
 
     express: {
       options: {
@@ -119,15 +126,15 @@ module.exports = function(grunt) {
           script: 'app.js'
         }
       },
+      test: {
+        options: {
+          script: 'test.js'
+        }
+      },
       prod: {
         options: {
           script: 'production.js',
           node_env: 'production'
-        }
-      },
-      test: {
-        options: {
-          script: 'test.js'
         }
       }
     },
@@ -144,6 +151,18 @@ module.exports = function(grunt) {
           }
         ]
       }
+    },
+
+    'mochaTest': {
+      test: {
+        options: {
+          reporter: 'spec',
+          // captureFile: 'results.txt', // Optionally capture the reporter output to a file
+          quiet: false, // Optionally suppress output to standard out (defaults to false)
+          clearRequireCache: false // Optionally clear the require cache before running tests (defaults to false)
+        },
+        src: ['test/**/*.js']
+      }
     }
   });
 
@@ -153,10 +172,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-react');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   grunt.registerTask('build', ['copy', 'sass', 'react']);
   grunt.registerTask('rebuild', ['clean', 'build']);
   grunt.registerTask('dev', ['express:dev', 'watch']);
+  grunt.registerTask('test', ['mochaTest']);
   grunt.registerTask('default', ['dev']);
 
 };
