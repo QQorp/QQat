@@ -57,6 +57,29 @@
       });
     });
 
+    describe('#QQ()', function () {
+      it('Creating an empty message, should return "QQ"', function(done){
+        var m = new Message({
+          content: null
+        });
+
+        m.QQ().should.equal('QQ');
+        done();
+      });
+
+
+      it('Creating a regular message, should return the right content', function(done){
+        var fakeContent = 'Lel';
+
+        var m = new Message({
+          content: fakeContent
+        });
+
+        m.QQ().should.equal(fakeContent);
+        done();
+      });
+    });
+
   });
 
 })();
