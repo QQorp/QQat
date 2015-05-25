@@ -8,7 +8,7 @@ module.exports = (function(){
 
   // Setting up the Schema
   var ChannelSchema = new Schema({
-    name: String
+    label: String
   });
 
   // Creating model
