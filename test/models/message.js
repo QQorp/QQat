@@ -5,6 +5,7 @@
   var should = require('should');
   var mongoose_test = require('../mongoose_test');
   var Message = require('../../models/message');
+  var User = require('../../models/user');
 
   describe('Models: Message', function () {
 
@@ -55,25 +56,22 @@
       });
     });
 
-    describe('#QQ()', function () {
-      it('Should create a message with an empty string and should return "QQ"', function(done){
-        var m = new Message({
-          content: ''
+    describe('#getSenderName()', function () {
+      it('Should create a message with a sender and return his very name', function(done){
+        var sender_name = 'Kevbac <3';
+
+        var u = new User({
+          username: sender_name,
+          login: null,
+          password: null
         });
 
-        m.QQ().should.equal('QQ');
-        done();
-      });
-
-
-      it('Should create a regular message and should return the right content', function(done){
-        var fakeContent = 'Lel';
-
         var m = new Message({
-          content: fakeContent
+          content: null,
+          sender: u
         });
 
-        m.QQ().should.equal(fakeContent);
+        m.getSenderName().should.equal(sender_name);
         done();
       });
     });
