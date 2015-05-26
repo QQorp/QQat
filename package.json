@@ -4,7 +4,7 @@
   "description": "A **powerfull thing** to do **insane stuff** ! _100% true_ ! _100% free_ ! _0% bullshit_ !",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/*.js"
+    "test": "mocha test/**/*.js"
   },
   "keywords": [
     "QQ",
