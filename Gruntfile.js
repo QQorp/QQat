@@ -62,6 +62,7 @@ module.exports = function(grunt) {
         options: {
           // Start a live reload server on the default port 35729
           livereload: true,
+          atBegin: true
         }
       },
       react: {
@@ -70,6 +71,7 @@ module.exports = function(grunt) {
         options: {
           // Start a live reload server on the default port 35729
           livereload: true,
+          atBegin: true
         }
       },
       js: {
@@ -78,6 +80,7 @@ module.exports = function(grunt) {
         options: {
           // Start a live reload server on the default port 35729
           livereload: true,
+          atBegin: true
         }
       },
       hmtl: {
