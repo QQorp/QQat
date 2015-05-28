@@ -6,20 +6,20 @@ module.exports = (function(){
 
   var Message = require('../models/message');
 
-  // List all users
+  var fake_messages = require('./data').fake_messages;
+
   router.get('/', function(req, res, next){
-    Message.find({}).sort({date: 'descending'}).exec(function(err, messages){
-      if (err) return next(err);
-      res.json(messages);
-    });
+    res.json(fake_messages);
+    next();
   });
 
-  // Return the user with the id given
   router.get('/:id', function(req, res, next){
-    Message.findById(req.params.id, function(err, message){
-      if (err) return next(err);
-      res.json(message);
-    });
+    if(req.params.id > -1 && req.params.id < fake_messages.length){
+      res.json(fake_messages[req.params.id]);
+    }else{
+      throw "Bad id";
+    }
+    next();
   });
 
   return router;
