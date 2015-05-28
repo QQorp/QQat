@@ -7,10 +7,10 @@ module.exports = (function(){
   var http = require('http').Server(app);
   var swig = require('swig');
 
-  var channel = require('./routes/channel');
+  var channels = require('./routes/channels');
   var routes = require('./routes/index');
-  var message = require('./routes/message');
-  var user = require('./routes/user');
+  var messages = require('./routes/messages');
+  var users = require('./routes/users');
 
   // Setting up logging system
   var logger = require('morgan');
@@ -22,10 +22,10 @@ module.exports = (function(){
   app.set('view engine', 'html');
 
   // Setting up routes
-  app.use('/channel', channel);
+  app.use('/channels', channels);
   app.use('/', routes);
-  app.use('/message', message);
-  app.use('/user', user);
+  app.use('/messages', messages);
+  app.use('/users', users);
 
   // Setting up static
   app.use('/static', express.static('public'));
