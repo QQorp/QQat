@@ -1,4 +1,3 @@
-
 requirejs.config({
   baseUrl: '/static/js/libs',
   paths: {
@@ -13,15 +12,10 @@ requirejs.config({
     jquery: 'jquery/dist/jquery',
     bootstrap: 'bootstrap-sass-official/assets/javascripts/bootstrap',
     react: 'react/react',
-    cryptojs: 'crypto-js/core',
-    socketio: 'socket.io-client/socket.io'
+    cryptojs: 'crypto-js/core'
   }
 });
 
-requirejs(['jquery', 'bootstrap', 'react', 'cryptojs', 'socketio'], function($, Bootstrap, React, CryptoJS, SocketIO) {
-  console.log($);
-  console.log(Bootstrap);
-  console.log(React);
-  console.log(CryptoJS);
-  console.log(SocketIO);
+requirejs(['jquery', 'bootstrap', 'react', 'cryptojs'], function($, Bootstrap, React, CryptoJS) {
+  // Your code here
 });
