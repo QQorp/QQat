@@ -6,11 +6,24 @@ module.exports = (function(){
 
   var User = require('../models/user');
 
+  var fake_users = [
+    {id: 1, name: 'John Doe'},
+    {id: 2, name: 'John Undoe'},
+    {id: 3, name: 'Hans Müller'}
+  ];
+
   router.get('/', function(req, res, next){
-    User.find({}).sort({registrationDate: 'descending'}).exec(function(err, users){
-      if(err) res.send(err);
-      res.json(users);
-    });
+    res.json(fake_users);
+    next();
+  });
+
+  router.get('/:id', function(req, res, next){
+    if(req.params.id > 0 && req.params.id < 4){
+      res.json(fake_users[req.params.id]);
+    }else{
+      throw "Bad id";
+    }
+    next();
   });
 
   return router;
