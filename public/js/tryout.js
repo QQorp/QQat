@@ -17,5 +17,30 @@ requirejs.config({
 });
 
 requirejs(['jquery', 'bootstrap', 'react', 'cryptojs'], function($, Bootstrap, React, CryptoJS) {
-  // Your code here
+  // GET /users
+  $.ajax({
+    method: "GET",
+    url: "/users"
+  })
+  .done(function(users) {
+    console.log(users);
+  });
+
+  // GET /messages
+  $.ajax({
+    method: "GET",
+    url: "/messages"
+  })
+  .done(function(messages) {
+    console.log(messages);
+  });
+
+  // GET /channels
+  $.ajax({
+    method: "GET",
+    url: "/channels"
+  })
+  .done(function(channels) {
+    console.log(channels);
+  });
 });
