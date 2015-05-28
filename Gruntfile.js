@@ -9,7 +9,8 @@ module.exports = function(grunt) {
         },
         files: {
           'public/css/app.css': 'scss/app.scss',
-          'public/css/chat.css': 'scss/chat.scss'
+          'public/css/chat.css': 'scss/chat.scss',
+          'public/css/tryout.css': 'scss/tryout.scss'
         }
       }
     },
