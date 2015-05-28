@@ -13,4 +13,8 @@ router.get('/tryout', function (req, res) {
   res.render('tryout');
 });
 
+router.get('/interface', function (req, res) {
+  res.render('interface');
+});
+
 module.exports = router;
