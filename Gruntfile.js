@@ -53,7 +53,6 @@ module.exports = function(grunt) {
       grunt: {
         files: 'Gruntfile.js',
         options: {
-          // Start a live reload server on the default port 35729
           livereload: true,
         }
       },
@@ -61,7 +60,6 @@ module.exports = function(grunt) {
         files: ['scss/**/*.scss', 'scss/*.scss'],
         tasks: ['sass'],
         options: {
-          // Start a live reload server on the default port 35729
           livereload: true,
           atBegin: true
         }
@@ -70,7 +68,6 @@ module.exports = function(grunt) {
         files: ['jsx/**/*.jsx', 'jsx/*.jsx'],
         tasks: ['react'],
         options: {
-          // Start a live reload server on the default port 35729
           livereload: true,
           atBegin: true
         }
@@ -79,7 +76,6 @@ module.exports = function(grunt) {
         files: '**/*.js',
         tasks: ['test'],
         options: {
-          // Start a live reload server on the default port 35729
           livereload: true,
           atBegin: true
         }
@@ -87,7 +83,6 @@ module.exports = function(grunt) {
       hmtl: {
         files: '**/*.html',
         options: {
-          // Start a live reload server on the default port 35729
           livereload: true,
         }
       }
