@@ -6,10 +6,19 @@ module.exports = (function(){
 
   var Message = require('../models/message');
 
+  // List all users
   router.get('/', function(req, res, next){
     Message.find({}).sort({date: 'descending'}).exec(function(err, messages){
       if(err) res.send(err);
       res.json(messages);
+    });
+  });
+
+  // Return the user with the id given
+  router.get('/:id', function(req, res, next){
+    Message.findById(req.params.id, function(err, message){
+      if(err) res.send(err);
+      res.json(message);
     });
   });
 
