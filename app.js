@@ -24,6 +24,10 @@
     res.sendFile(path.join(__dirname+'/views/chat.html'));
   });
 
+  app.get('/interface', function (req, res) {
+    res.sendFile(path.join(__dirname+'/views/interface.html'));
+  });
+
   app.use('/static', express.static('public'));
 
   // SocketIO section
