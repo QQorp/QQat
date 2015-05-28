@@ -1,12 +1,37 @@
-(function(){
+module.exports = (function(){
   'use strict';
 
-  var config = require('./config');
   var express = require('express');
-  var app = express();
   var path = require('path');
+  var app = express();
   var http = require('http').Server(app);
-  var io = require('socket.io')(http);
+  var swig = require('swig');
+
+  var channel = require('./routes/channel');
+  var routes = require('./routes/index');
+  var message = require('./routes/message');
+  var user = require('./routes/user');
+
+  // Setting up logging system
+  var logger = require('morgan');
+  app.use(logger('dev'));
+
+  // Setting up views
+  app.set('views', path.join(__dirname, 'views'));
+  app.engine('html', swig.renderFile);
+  app.set('view engine', 'html');
+
+  // Setting up routes
+  app.use('/channel', channel);
+  app.use('/', routes);
+  app.use('/message', message);
+  app.use('/user', user);
+
+  // Setting up static
+  app.use('/static', express.static('public'));
+
+  // Setting up database
+  var config = require('./config');
   var mongoose = require('mongoose');
   mongoose.connect(config.db.development, function (err) {
     if (err) {
@@ -14,43 +39,7 @@
     }
   });
 
-  var Message = require('./models/message');
-
-  app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname+'/views/index.html'));
-  });
-
-  app.get('/chat', function (req, res) {
-    res.sendFile(path.join(__dirname+'/views/chat.html'));
-  });
-
-  app.use('/static', express.static('public'));
-
-  // SocketIO section
-  io.on('connection', function(socket){
-    Message.find({}, function(err, docs){
-      socket.emit('previous chat messages', docs);
-    });
-
-    socket.on('chat message', function(msg){
-      var m = new Message({ content: msg });
-      m.save(function(err){
-        if(err){
-          throw err;
-        }
-      });
-      io.emit('chat message', msg);
-    });
-
-    socket.on('disconnect', function(){
-      // Does nothing !
-    });
-  });
-
-  var server = http.listen(3000, function () {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log('Example app listening at http://%s:%s', host, port);
-  });
+  // End og the script
+  return app;
 
 })();

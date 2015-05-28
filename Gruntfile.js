@@ -146,7 +146,7 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          script: 'app.js'
+          script: 'bin/www'
         }
       },
       test: {
