@@ -20,9 +20,9 @@ var Channel = React.createClass({
     render: function() {
         var ChannelNode = this.state.data.map(function(channel){
             return (
-                <li>
+                <li key={ channel.id }>
                     <em>
-                        {channel.channelName}
+                        {channel.name}
                     </em>
                 </li>
             )
