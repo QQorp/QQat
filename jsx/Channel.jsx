@@ -29,7 +29,6 @@ var Channel = React.createClass({
         });
         return (
             <div className="channel" >
-                <h2>Ici les canaux de discussion</h2>
                 <ul>
                     {ChannelNode}
                 </ul>

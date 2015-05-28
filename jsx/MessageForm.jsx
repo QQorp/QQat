@@ -1,12 +1,10 @@
 var MessageForm = React.createClass({
     render: function() {
         return (
-            <form className="messageForm">
-                <h2>
-                    Forumulaire pour écrire 
-                </h2>
-                <input type="text" placeholder="Write me sempai" />
-            </form>
+		<div className="input-group">
+		  <span className="input-group-addon"><i className="fa fa-font"></i></span>
+		  <input type="text" className="form-control" placeholder="Write your QQ here.." />
+		</div>
         );
     }
 });
