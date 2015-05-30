@@ -21,7 +21,6 @@ module.exports = {
       options: {
         // low-level configuration
         // (redis driver options)
-        // parser: 'hiredis',
         return_buffers: false,
         detect_buffers: false,
         socket_nodelay: true,
