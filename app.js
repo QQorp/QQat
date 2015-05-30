@@ -39,12 +39,6 @@ module.exports = (function(){
 
   // Setting up database
   var config = require('./config');
-  var mongoose = require('mongoose');
-  mongoose.connect(config.db.development, function (err) {
-    if (err) {
-      throw err;
-    }
-  });
 
   // End og the script
   return app;

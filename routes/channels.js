@@ -4,8 +4,6 @@ module.exports = (function(){
   var express = require('express');
   var router = express.Router();
 
-  var Channel = require('../models/channel');
-
   var fake_channels = require('./data').fake_channels;
   var fake_messages = require('./data').fake_messages;
 

@@ -4,8 +4,6 @@ module.exports = (function(){
   var express = require('express');
   var router = express.Router();
 
-  var Message = require('../models/message');
-
   var fake_messages = require('./data').fake_messages;
 
   router.get('/', function(req, res, next){

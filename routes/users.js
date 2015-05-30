@@ -4,8 +4,6 @@ module.exports = (function(){
   var express = require('express');
   var router = express.Router();
 
-  var User = require('../models/user');
-
   var fake_users = require('./data').fake_users;
 
   router.get('/', function(req, res, next){
