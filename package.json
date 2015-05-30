@@ -23,7 +23,9 @@
     "elliptic": "^3.0.3",
     "express": "^4.12.3",
     "requirejs": "^2.1.17",
-    "swig": "~1.4.2"
+    "sails-redis": "^0.10.3",
+    "swig": "~1.4.2",
+    "waterline": "^0.10.23"
   },
   "devDependencies": {
     "bower": "^1.4.1",

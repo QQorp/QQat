@@ -6,6 +6,8 @@ module.exports = (function(){
   var app = express();
   var http = require('http').Server(app);
   var swig = require('swig');
+  var waterline = require('waterline')();
+  var config = require('./config');
 
   var channels = require('./routes/channels');
   var routes = require('./routes/index');
@@ -38,7 +40,9 @@ module.exports = (function(){
   app.use('/static', express.static('public'));
 
   // Setting up database
-  var config = require('./config');
+  waterline.initialize(config, function(err, models) {
+    if(err) throw err;
+  });
 
   // End og the script
   return app;
