@@ -1,10 +1,7 @@
 var MessageBox = React.createClass({
-    getInitialState: function() {
-        return {data: []};
-    },
-    componentDidMount: function() {
+    loadMessage: function(param) {
         $.ajax({
-            url: this.props.url,
+            url: param,
             dataType: 'json',
             cache: false,
             success: function(data) {
@@ -15,7 +12,20 @@ var MessageBox = React.createClass({
             }.bind(this)
         });
     },
+    getInitialState: function() {
+        return {
+            data: [],
+        };
+    },
+    componentWillReceiveProps: function(nextProps) {
+        console.log("update props");
+        this.loadMessage(nextProps.info);
+    },
+    componentDidMount: function() {
+        this.loadMessage(this.props.info);
+    },
     render: function() {
+        console.log("ici render messageBox");
         return (
             <div id="display" className="col-md-9 no-float">
                 <MessageList data={this.state.data} />

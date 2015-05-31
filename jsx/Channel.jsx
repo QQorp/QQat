@@ -2,6 +2,9 @@ var Channel = React.createClass({
     getInitialState: function() {
         return {data: []};
     },
+    handleClick: function(id) {
+        this.props.func(id);
+    },
     componentDidMount: function() {
         $.ajax({
             url: this.props.url,
@@ -9,8 +12,6 @@ var Channel = React.createClass({
             cache: false,
             success: function(data) {
                 this.setState({data: data});
-                console.log(data);
-                console.log(this.state.data);
             }.bind(this),
             error: function(xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
@@ -20,18 +21,18 @@ var Channel = React.createClass({
     render: function() {
         var ChannelNode = this.state.data.map(function(channel){
             return (
-                <li key={ channel.id }>
-                    <em>
+                <tr>
+                    <td onClick={this.handleClick.bind(this, channel.id)} key={channel.id} >
                         {channel.name}
-                    </em>
-                </li>
-            )
-        });
+                    </td>
+                </tr>
+            );
+        }, this);
         return (
             <div className="channel" >
-                <ul>
+                <table>
                     {ChannelNode}
-                </ul>
+                </table>
             </div>
         );
     }
