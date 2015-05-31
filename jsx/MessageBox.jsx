@@ -18,14 +18,12 @@ var MessageBox = React.createClass({
         };
     },
     componentWillReceiveProps: function(nextProps) {
-        console.log("update props");
         this.loadMessage(nextProps.info);
     },
     componentDidMount: function() {
         this.loadMessage(this.props.info);
     },
     render: function() {
-        console.log("ici render messageBox");
         return (
             <div id="display" className="col-md-9 no-float">
                 <MessageList data={this.state.data} />

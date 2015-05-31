@@ -11,11 +11,8 @@ var GlobalBox = React.createClass({
             idChan: newId,
             url: info
         });
-        console.log(this.state.idChan);
-        console.log(this.state.url);
     },
     render: function() {
-        console.log("coucou ici render");
         return (
             <div className="row">
                 <div id="panel" className="col-md-3 no-float">
