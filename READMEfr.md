@@ -13,10 +13,10 @@ Le chat est composé de plusieurs couches :
   - Transmission de donnée facile
   - Cross-platform
   - Basé autour de la notion d'évènement
-  - Peut envoyer des fichier binaires (Files, Pictures, ...)
+  - Peut envoyer des fichiers binaires (Files, Pictures, ...)
 
 - [ElipticJS](https://github.com/indutny/elliptic)
-  - Génère des clé elliptique
+  - Génère des clés elliptiques
   - Securité élevée
 
 - [CryptoJS 3.1](https://code.google.com/p/crypto-js/)
@@ -25,7 +25,7 @@ Le chat est composé de plusieurs couches :
   - Hashage
 
 - [React](https://facebook.github.io/react/)
-  - La librairie de Facebook pour faire des interface
+  - La librairie de Facebook pour faire des interfaces
 
 - [RequireJS](http://requirejs.org/)
 - [SASS](http://sass-lang.com/)
@@ -36,7 +36,7 @@ Le chat est composé de plusieurs couches :
   - Driver Nodejs pour MongoDB
 
 ## DevOps
-Un serveur avec [Drone.io](drone.io) teste le serveur et le client à chaque build avec des tests d'intégration. Le serveur est connecté à un [GitHub](https://github.com/) via webhooks pour gérer le code et envoyer des notification a Drone pour chacun des commit. Seul un serveur test et un serveur de production gère la version stable du logiciel pour permettre de montrer ce que QQat peut faire !
+Un serveur avec [Drone.io](drone.io) teste le serveur et le client à chaque build avec des tests d'intégration. Le serveur est connecté à un [GitHub](https://github.com/) via webhooks pour gérer le code et envoyer des notifications a Drone pour chacun des commit. Seul un serveur test et un serveur de production gère la version stable du logiciel pour permettre de montrer ce que QQat peut faire !
 
 # License MIT
 The MIT License (MIT)
@@ -79,7 +79,7 @@ L'environnement de développement demande : [npm](https://www.npmjs.com/), [grun
 Pour installer [proprement](https://www.joyent.com/blog/installing-node-and-npm/) Nodejs et npm.
 
 ### Installer grunt et bower
-Après l'installation de npm, utilise ton CLI préféré et écrit :
+Après l'installation de npm, utilisez votre CLI préféré et écrit :
 
 ```shell
 npm install -g grunt-cli
