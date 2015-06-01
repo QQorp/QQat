@@ -56,7 +56,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>IM
 # Installer tout sur Docker
 ## /!\ **NE MARCHE PAS POUR LE MOMENT** /!\
 ### *Mise à jour prochaine*
-Premièrement, il faut installer Docker [install Docker](https://docs.docker.com/installation/).
+Premièrement, il faut installer [Docker](https://docs.docker.com/installation/).
 
 Puis build le projet :
 
@@ -75,7 +75,7 @@ docker run -p 3000:3000 qqat
 L'environnement de développement demande : [npm](https://www.npmjs.com/), [grunt](http://gruntjs.com/), [bower](http://bower.io/) et [MongoDB](https://www.mongodb.org/) now.
 
 ### Installer npm
-[this website](https://nodejs.org/download/) Télécharge et installe sur ta plateform puis lance le !
+[Télécharge](https://nodejs.org/download/) et installe sur ta plateform puis lance le !
 Pour installer [proprement](https://www.joyent.com/blog/installing-node-and-npm/) Nodejs et npm.
 
 ### Installer grunt et bower
