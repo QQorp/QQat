@@ -76,6 +76,7 @@ The development environment requires [npm](https://www.npmjs.com/), [grunt](http
 
 ### Intalling npm
 Go to [this website](https://nodejs.org/download/) and download the installer for you platform and then, run it !
+To install [properly](https://www.joyent.com/blog/installing-node-and-npm/) Nodejs and npm.
 
 ### Installing grunt and bower
 After installing npm take you favorite CLI and type :
