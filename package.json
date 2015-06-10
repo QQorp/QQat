@@ -1,0 +1,28 @@
+{
+  "name": "qqat",
+  "version": "0.0.1",
+  "description": "A **powerfull thing** to do **insane stuff** ! _100% true_ ! _100% free_ ! _0% bullshit_ !",
+  "main": "main",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "scripts": {
+    "test": "go test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QQorp/QQat.git"
+  },
+  "keywords": [
+    "QQ"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QQorp/QQat/issues"
+  },
+  "homepage": "https://github.com/QQorp/QQat#readme"
+}
