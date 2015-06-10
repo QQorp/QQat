@@ -14,7 +14,8 @@ QQat is a personnal end-to-end **OTR encrypted chat**, **reliable**, **sexy** an
   - Bootstrap
 
 ## DevOps
-
+- Docker
+- Drone.io
 
 # Under MIT License
 The MIT License (MIT)
