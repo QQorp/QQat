@@ -4,14 +4,39 @@ A **powerfull thing** to do **insane stuff** ! _100% true_ ! _100% free_ ! _0% b
 ## What is QQat ?
 QQat is a personnal end-to-end **OTR encrypted chat**, **reliable**, **sexy** and **soft**.
 
+# How to run the server
+```shell
+go get github.com/QQorp/QQat
+QQat
+```
+
+# How to contribute
+```shell
+go get github.com/QQorp/QQat
+cd $GOPATH/src/github.com/QQorp/QQat
+npm install
+```
+You can now edit files, the architecture looks like that :
+- src (development folder)
+  - css (CSS files)
+  - sass (SCSS files that will be preprossessed)
+  - js (JS files)
+  - jsx (JSX files that will be compiled for react)
+
+Those files will be concatened to the prod folder. **css/sass** files to **prod/css/main.css**. And **js/jsx** files to **prod/js/main.js**. Javascript libraries are in the **prod/js/libs** folder.
+
+List of Javascript libraries :
+- ReactJS
+
 ## Technologies
 - Back-end
   - Golang
   - Redis
 - Front-end
-  - Gulp
   - React
   - Bootstrap
+- Front-end packaging
+  - Gulp
 
 ## DevOps
 - Docker
