@@ -1,2 +1,5 @@
 # Node modules
 node_modules/
+
+# Gulp build
+build/
