@@ -1,5 +1,4 @@
-(function(message){
-  'use strict';
+import React from 'react';
+import GlobalBox from './GlobalBox';
 
-  console.log(message);
-})('Hello world!');
+React.render(<GlobalBox />, document.body);
