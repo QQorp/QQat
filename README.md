@@ -20,10 +20,9 @@ You can now edit files, the architecture looks like that :
 - src (development folder)
   - css (CSS files)
   - sass (SCSS files that will be preprossessed)
-  - js (JS files)
-  - jsx (JSX files that will be compiled for react)
+  - js (JS files, with React-components)
 
-Those files will be concatened to the prod folder. **css/sass** files to **prod/css/main.css**. And **js/jsx** files to **prod/js/main.js**. Javascript libraries are in the **prod/js/libs** folder.
+Those files will be concatened to the prod folder. **css/sass** files to **prod/css/main.css**. And **js** files to **prod/js/bundle.js**. Javascript libraries are in the **prod/js/libs** folder.
 
 List of Javascript libraries :
 - ReactJS
@@ -36,7 +35,7 @@ List of Javascript libraries :
   - React
   - Bootstrap
 - Front-end packaging
-  - Gulp
+  - Webpack
 
 ## DevOps
 - Docker
