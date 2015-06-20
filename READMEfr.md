@@ -36,6 +36,7 @@ Liste des Librairies Javascript:
   - Redis
 - Front-end
   - React
+  - Jest (testing)
   - Bootstrap
 - Front-end packaging
   - Webpack
