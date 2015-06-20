@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 
 	"github.com/garyburd/redigo/redis"
@@ -30,6 +31,14 @@ func newPool() *redis.Pool {
 
 var pool = newPool()
 
+func homeHandler(rw http.ResponseWriter, r *http.Request) {
+	file, err := ioutil.ReadFile("prod/index.html")
+	if err != nil {
+		panic(err)
+	}
+	rw.Write(file)
+}
+
 func uuidHandler(rw http.ResponseWriter, r *http.Request) {
 	c := pool.Get()
 	defer c.Close()
@@ -49,7 +58,7 @@ func uuidHandler(rw http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./prod/")))
+	r.Path("/").HandlerFunc(homeHandler)
 
 	// API
 	api := r.PathPrefix("/api").Subrouter()
@@ -61,5 +70,6 @@ func main() {
 
 	// Starting server
 	http.Handle("/", r)
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./prod/"))))
 	http.ListenAndServe(":8000", nil)
 }
