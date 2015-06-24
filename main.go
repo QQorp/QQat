@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 
 	"github.com/garyburd/redigo/redis"
 	"github.com/gorilla/mux"
@@ -13,6 +14,10 @@ import (
 
 type uUID struct {
 	Value string
+}
+
+type hostname struct {
+	Name string
 }
 
 func newPool() *redis.Pool {
@@ -56,9 +61,19 @@ func uuidHandler(rw http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(rw).Encode(res)
 }
 
+func hostnameHandler(rw http.ResponseWriter, r *http.Request) {
+	h := os.Getenv("HOSTNAME")
+	res := hostname{
+		Name: h,
+	}
+
+	json.NewEncoder(rw).Encode(res)
+}
+
 func main() {
 	r := mux.NewRouter()
 	r.Path("/").HandlerFunc(homeHandler)
+	r.Path("/hostname").HandlerFunc(hostnameHandler)
 
 	// API
 	api := r.PathPrefix("/api").Subrouter()
