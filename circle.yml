@@ -1,0 +1,8 @@
+machine:
+  services:
+    - redis
+test:
+  pre:
+    - go get github.com/smartystreets/goconvey
+  override:
+    - go test -v ./...
