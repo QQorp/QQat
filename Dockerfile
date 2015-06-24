@@ -9,14 +9,15 @@ RUN curl -L https://www.npmjs.com/install.sh | sh
 WORKDIR /go/src/github.com/QQorp/QQat/
 
 # Install QQat
-ADD . /go/src/github.com/QQorp/QQat/
-
+ADD ./main.go /go/src/github.com/QQorp/QQat/main.go
 RUN go get
 
-RUN go build
-
 # Installing npm dependencies
+ADD ./package.json /go/src/github.com/QQorp/QQat/package.json
 RUN npm install
+
+ADD . /go/src/github.com/QQorp/QQat/
+RUN go build
 
 # Binding entrypoint
 ENTRYPOINT /go/src/github.com/QQorp/QQat/QQat
