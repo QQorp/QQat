@@ -24,6 +24,12 @@ func TestMain(t *testing.T) {
 				So(res, ShouldEqual, 2)
 			})
 		})
+		Convey("Testing 1*1", func() {
+			res := 1 * 1
+			Convey("Should equal 1", func() {
+				So(res, ShouldEqual, 1)
+			})
+		})
 		Convey("Testing fibonacci", func() {
 			Convey("Fibo(0) should return 0", func() {
 				So(fibo(0), ShouldEqual, 0)
