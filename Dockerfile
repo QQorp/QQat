@@ -6,21 +6,32 @@ RUN apt-get install -y nodejs
 RUN curl -L https://www.npmjs.com/install.sh | sh
 
 # Moving to directory
-WORKDIR /go/src/github.com/QQorp/QQat/
+WORKDIR $GOPATH/src/github.com/QQorp/QQat/
 
-# Install QQat
-ADD ./main.go /go/src/github.com/QQorp/QQat/main.go
-RUN go get
+# Adding main/routers/controllers
+ADD ./routers/ $GOPATH/src/github.com/QQorp/QQat/routers/
+ADD ./controllers/ $GOPATH/src/github.com/QQorp/QQat/controllers/
+ADD ./main.go $GOPATH/src/github.com/QQorp/QQat/main.go
 
+# Getting dependencies
+RUN go get -t -d -v ./...
+# Getting bee
+RUN go get github.com/beego/bee
+# Adding package.json
+ADD ./package.json $GOPATH/src/github.com/QQorp/QQat/package.json
 # Installing npm dependencies
-ADD ./package.json /go/src/github.com/QQorp/QQat/package.json
 RUN npm install
 
-ADD . /go/src/github.com/QQorp/QQat/
-RUN go build
+# Importing all files
+ADD . $GOPATH/src/github.com/QQorp/QQat/
+
+# Building application
+RUN go build -v
+
+
 
 # Binding entrypoint
-ENTRYPOINT /go/src/github.com/QQorp/QQat/QQat
+ENTRYPOINT cd $GOPATH/src/github.com/QQorp/QQat && $GOPATH/bin/bee run
 
 # Exposing port
 EXPOSE 8000
