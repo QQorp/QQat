@@ -25,8 +25,6 @@ func TestMain(t *testing.T) {
 	w := httptest.NewRecorder()
 	beego.BeeApp.Handlers.ServeHTTP(w, r)
 
-	beego.Trace("testing", "TestMain", "Code[%d]\n%s", w.Code, w.Body.String())
-
 	Convey("Subject: Test Station Endpoint\n", t, func() {
 		Convey("Status Code Should Be 200", func() {
 			So(w.Code, ShouldEqual, 200)
