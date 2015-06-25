@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/QQorp/QQat/tree/master.svg?style=svg)](https://circleci.com/gh/QQorp/QQat/tree/master)
+
 # QQat
 A **powerfull thing** to do **insane stuff** ! _100% true_ ! _100% free_ ! _0% bullshit_ !
 
