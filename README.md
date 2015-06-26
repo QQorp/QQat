@@ -1,16 +1,51 @@
 [![Circle CI](https://circleci.com/gh/QQorp/QQat/tree/master.svg?style=svg)](https://circleci.com/gh/QQorp/QQat/tree/master)
 
 # QQat
-A **powerfull thing** to do **insane stuff** ! _100% true_ ! _100% free_ ! _0% bullshit_ !
+A **powerfull thing** to do **insane stuff** ! _100% true_ ! _100% free_ ! _0% bullshit_ ! :+1:
 
 ## What is QQat ?
-QQat is a personnal end-to-end **OTR encrypted chat**, **reliable**, **sexy** and **soft**.
+QQat is a personnal end-to-end **OTR encrypted chat**, **reliable**, **sexy** and **soft**. :sunglasses:
+
 
 # How to run the server
+## Run with ```go```
+**Requirements** :
+- Go installed with $GOPATH and $GOROOT set
+- Redis server running (You can also run it with ```docker run -d -p 6379:6379 redis```)
+
 ```shell
 go get github.com/QQorp/QQat
-QQat
+cd $GOPATH/src/github.com/QQorp/QQat/
+go build
+./QQat
 ```
+
+You can access QQat from http://127.0.0.1:8000/
+
+## Run with ```docker```
+**Requirements** :
+- Docker installed
+- Docker Compose installed
+- A warm coffee :coffee:
+
+```shell
+docker-compose build
+docker-compose up -d
+```
+The current setup for Docker Compose is :
+- **nginx** as reverse proxy
+- **haproxy** as loadbalancer
+- web instance of **QQat**
+- **redis** server
+
+You can access QQat from http://127.0.0.1:3000/
+
+# Run tests
+## Back-end
+```go test -v ./tests/...```
+
+## Front-end
+*Not implemented yet*
 
 # How to contribute
 ```shell
@@ -32,7 +67,9 @@ List of Javascript libraries :
 ## Technologies
 - Back-end
   - Golang
+  - beeGo framework
   - Redis
+  - GoConvey
 - Front-end
   - React
   - Bootstrap
@@ -40,8 +77,8 @@ List of Javascript libraries :
   - Webpack
 
 ## DevOps
-- Docker
-- Drone.io
+- CircleCI
+- Slack
 
 # Under MIT License
 The MIT License (MIT)
