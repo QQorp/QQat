@@ -4,3 +4,8 @@ machine:
 test:
   override:
     - go test -v ./tests/...
+dependencies:
+  override:
+    - npm install --dev
+  cache_directories:
+    - "node_modules"
