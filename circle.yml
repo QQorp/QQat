@@ -4,6 +4,3 @@ machine:
 test:
   override:
     - go test -v ./tests/...
-dependencies:
-  cache_directories:
-    - "node_modules"
