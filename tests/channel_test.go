@@ -19,6 +19,7 @@ func init() {
 // TestMain is a sample to run an endpoint test
 func TestChannel(t *testing.T) {
 	Convey("Testing channel model", t, func() {
+		Reset(ResetRedis)
 		Convey("Creating a channel with blank name, should return an error", func() {
 			channel, err := CreateChannel("")
 
