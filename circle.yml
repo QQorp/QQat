@@ -6,6 +6,6 @@ test:
     - go test -v ./tests/...
 dependencies:
   override:
-    - npm install --dev
+    - npm install
   cache_directories:
     - "node_modules"
