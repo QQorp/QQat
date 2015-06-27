@@ -73,5 +73,50 @@ func TestChannel(t *testing.T) {
 				So(channel.ChannelUID, ShouldEqual, createdChannel.ChannelUID)
 			})
 		})
+		Convey("Testing GetAllChannels", func() {
+			Convey("Getting all channels with 0 channels, should return empty array", func() {
+				channels, err := GetAllChannels()
+
+				So(channels, ShouldBeEmpty)
+				So(err, ShouldBeNil)
+			})
+			Convey("Getting all channels with 1 channel created, should return array with 1 element", func() {
+				CreateChannel("lel")
+				channels, err := GetAllChannels()
+
+				So(len(channels), ShouldEqual, 1)
+				So(err, ShouldBeNil)
+			})
+			Convey("Getting all channels with 5 channels created, should return array with 5 elements", func() {
+				var nbElements = 5
+				for index := 0; index < nbElements; index++ {
+					CreateChannel("lel")
+				}
+				channels, err := GetAllChannels()
+
+				So(len(channels), ShouldEqual, nbElements)
+				So(err, ShouldBeNil)
+			})
+			Convey("Getting all channels with 500 channels created, should return array with 500 elements", func() {
+				var nbElements = 500
+				for index := 0; index < nbElements; index++ {
+					CreateChannel("lel")
+				}
+				channels, err := GetAllChannels()
+
+				So(len(channels), ShouldEqual, nbElements)
+				So(err, ShouldBeNil)
+			})
+			Convey("Getting all channels with 1000 channels created, should return array with 1000 elements", func() {
+				var nbElements = 1000
+				for index := 0; index < nbElements; index++ {
+					CreateChannel("lel")
+				}
+				channels, err := GetAllChannels()
+
+				So(len(channels), ShouldEqual, nbElements)
+				So(err, ShouldBeNil)
+			})
+		})
 	})
 }
