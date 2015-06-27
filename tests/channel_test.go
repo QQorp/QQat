@@ -56,6 +56,12 @@ func TestChannel(t *testing.T) {
 				So(channel, ShouldBeNil)
 				So(err, ShouldNotBeNil)
 			})
+			Convey("Getting channel that does not exists, should return error", func() {
+				channel, err := GetChannel("AAA")
+
+				So(channel, ShouldBeNil)
+				So(err, ShouldNotBeNil)
+			})
 			Convey("Creating a channel and getting it, should return the channel", func() {
 				channelName := "lel"
 				createdChannel, _ := CreateChannel(channelName)
