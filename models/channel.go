@@ -27,9 +27,9 @@ func CreateChannel(channelName string) (*Channel, error) {
 			c := RedisPool.Get()
 			defer c.Close()
 
-			_, err := c.Do("SADD", "Channels", "Channel:"+channel.ChannelUID)
+			_, err := c.Do("SADD", "Channels", channel.ChannelUID)
 			if err == nil {
-				_, err := c.Do("HMSET", "Channel:"+channel.ChannelUID, "Name", channel.ChannelName)
+				_, err := c.Do("HMSET", channel.ChannelUID, "Name", channel.ChannelName)
 				if err == nil {
 					return channel, nil
 				}
@@ -49,9 +49,9 @@ func GetChannel(channelUID string) (*Channel, error) {
 		c := RedisPool.Get()
 		defer c.Close()
 
-		foundNumber, err := redis.Int(c.Do("SISMEMBER", "Channels", "Channel:"+channelUID))
+		foundNumber, err := redis.Int(c.Do("SISMEMBER", "Channels", channelUID))
 		if err == nil && foundNumber == 1 {
-			channelName, err := redis.String(c.Do("HGET", "Channel:"+channelUID, "Name"))
+			channelName, err := redis.String(c.Do("HGET", channelUID, "Name"))
 			if err == nil {
 				channel := &Channel{
 					ChannelUID:  channelUID,
@@ -64,4 +64,24 @@ func GetChannel(channelUID string) (*Channel, error) {
 		return nil, fmt.Errorf("Channel does not exists")
 	}
 	return nil, fmt.Errorf("ChannelUID not provided")
+}
+
+// GetAllChannels : Returns all the channels
+func GetAllChannels() ([]*Channel, error) {
+	c := RedisPool.Get()
+	defer c.Close()
+
+	channelsName, err := redis.Strings(c.Do("SMEMBERS", "Channels"))
+	if err == nil {
+		var res []*Channel
+		for _, item := range channelsName {
+			channel, err := GetChannel(item)
+			if err != nil {
+				return nil, err
+			}
+			res = append(res, channel)
+		}
+		return res, nil
+	}
+	return nil, fmt.Errorf("Cannot get all channels")
 }
