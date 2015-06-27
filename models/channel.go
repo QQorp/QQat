@@ -33,9 +33,11 @@ func CreateChannel(channelName string) (*Channel, error) {
 				if err == nil {
 					return channel, nil
 				}
+				return nil, fmt.Errorf("Cannot set the channel name")
 			}
+			return nil, fmt.Errorf("Cannot add the channel")
 		}
-		return nil, err
+		return nil, fmt.Errorf("Cannot create UID")
 	}
 
 	return nil, fmt.Errorf("Channel's name cannot be empty")
@@ -57,8 +59,9 @@ func GetChannel(channelUID string) (*Channel, error) {
 				}
 				return channel, nil
 			}
+			return nil, fmt.Errorf("Cannot get channel name")
 		}
-		return nil, err
+		return nil, fmt.Errorf("Channel does not exists")
 	}
 	return nil, fmt.Errorf("ChannelUID not provided")
 }
