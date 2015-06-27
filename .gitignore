@@ -3,3 +3,10 @@ node_modules/
 
 # Gulp build
 build/
+
+# tmp files
+*.tmp
+
+# docs & swagger
+docs/
+swagger/
