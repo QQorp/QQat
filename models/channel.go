@@ -29,7 +29,7 @@ func CreateChannel(channelName string) (*Channel, error) {
 
 			_, err := c.Do("SADD", "Channels", channel.ChannelUID)
 			if err == nil {
-				_, err := c.Do("HMSET", channel.ChannelUID, "Name", channel.ChannelName)
+				_, err := c.Do("HSET", channel.ChannelUID, "Name", channel.ChannelName)
 				if err == nil {
 					return channel, nil
 				}
