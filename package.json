@@ -13,6 +13,7 @@
     "bootstrap-sass": "^3.3.5",
     "font-awesome": "^4.3.0",
     "gulp": "^3.9.0",
+    "gulp-purifycss": "git+https://github.com/purifycss/gulp-purifycss.git",
     "gulp-sass": "^2.0.3",
     "gulp-util": "^3.0.6",
     "jquery": "^2.1.4",
