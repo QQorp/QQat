@@ -11,6 +11,7 @@ WORKDIR $GOPATH/src/github.com/QQorp/QQat/
 # Adding main/routers/controllers
 ADD ./routers/ $GOPATH/src/github.com/QQorp/QQat/routers/
 ADD ./controllers/ $GOPATH/src/github.com/QQorp/QQat/controllers/
+ADD ./models/ $GOPATH/src/github.com/QQorp/QQat/models/
 ADD ./main.go $GOPATH/src/github.com/QQorp/QQat/main.go
 
 # Getting dependencies
