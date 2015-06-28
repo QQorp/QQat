@@ -15,5 +15,5 @@ func (c *MainController) Get() {
 	if eh == nil {
 		c.Data["Hostname"] = h
 	}
-	c.TplNames = "index.tpl"
+	c.TplNames = "welcome.tpl"
 }

@@ -14,14 +14,14 @@ gulp.task('icons', function() {
 gulp.task('sass', function () {
   gulp.src('./front-src/sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(purify(['./static/**/*.js', './views/**/*.html']))
+    .pipe(purify(['./static/**/*.js', './views/**/*.tpl']))
     .pipe(gulp.dest('./static/css/'));
 });
 
 gulp.task('sass:prod', function () {
   gulp.src('./front-src/sass/**/*.scss')
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(purify(['./static/**/*.js', './views/**/*.html']))
+    .pipe(purify(['./static/**/*.js', './views/**/*.tpl']))
     .pipe(gulp.dest('./static/css/'));
 });
 
@@ -57,7 +57,7 @@ gulp.task("webpack:prod", function(callback) {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./front-src/sass/**/*.scss', ['sass']);
+  gulp.watch(['./static/**/*.js', './views/**/*.tpl', './front-src/sass/**/*.scss'], ['sass']);
   gulp.watch('./front-src/js/**/*.js', ['webpack']);
 });
 
