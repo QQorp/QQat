@@ -10,3 +10,6 @@ build/
 # docs & swagger
 docs/
 swagger/
+
+# Tests artefacts
+tests/routers/
