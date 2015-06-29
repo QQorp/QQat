@@ -5,6 +5,7 @@ var sass = require('gulp-sass');
 var webpack = require("webpack");
 var gutil = require("gulp-util");
 var purify = require('gulp-purifycss');
+var uglifycss = require('gulp-uglifycss');
 
 gulp.task('icons', function() {
     return gulp.src('./node_modules/font-awesome/fonts/**.*')
@@ -14,7 +15,6 @@ gulp.task('icons', function() {
 gulp.task('sass', function () {
   gulp.src('./front-src/sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(purify(['./static/**/*.js', './views/**/*.tpl']))
     .pipe(gulp.dest('./static/css/'));
 });
 
@@ -22,6 +22,7 @@ gulp.task('sass:prod', function () {
   gulp.src('./front-src/sass/**/*.scss')
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(purify(['./static/**/*.js', './views/**/*.tpl']))
+    .pipe(uglifycss())
     .pipe(gulp.dest('./static/css/'));
 });
 
