@@ -7,6 +7,7 @@ import (
 
 func init() {
 	beego.Router("/", &controllers.MainController{})
+	beego.Router("/chat/", &controllers.ChatController{})
 	ns := beego.NewNamespace("/api",
 		beego.NSNamespace("/channel",
 			beego.NSInclude(
