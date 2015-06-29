@@ -46,6 +46,7 @@
                 CircleCI
               </a>
             </li>
+          </ul>
         </h2>
         <small>Page served by : {{.Hostname}}</small>
       </div>
