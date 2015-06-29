@@ -27,7 +27,25 @@
         <h3>A personnal end-to-end OTR encrypted chat, reliable, sexy and soft.</h3>
         <h3><small>This website is under construction</small></h3>
         <h2>
-          <a href="https://github.com/QQorp/QQat" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> Github</a>
+          <ul class="list-inline">
+            <li>
+              <a href="https://github.com/QQorp/QQat" class="btn btn-default btn-lg">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                Github
+              </a>
+            </li>
+            <li>
+              <a href="https://circleci.com/gh/QQorp/QQat" class="btn btn-default btn-lg">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+                </span>
+                CircleCI
+              </a>
+            </li>
         </h2>
         <small>Page served by : {{.Hostname}}</small>
       </div>
