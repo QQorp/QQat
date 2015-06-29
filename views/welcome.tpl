@@ -30,6 +30,7 @@
           <a href="https://github.com/QQorp/QQat" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> Github</a>
         </h2>
         <small>Page served by : {{.Hostname}}</small>
+      </div>
   </div>
 </body>
 </html>
