@@ -31,8 +31,8 @@ var Channel = React.createClass({
       );
     }, this);
     return (
-      <div className="channel" >
-        <ul className="liste" >
+      <div className="channels">
+        <ul>
           {ChannelNode}
         </ul>
       </div>

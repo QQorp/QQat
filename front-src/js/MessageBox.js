@@ -20,9 +20,11 @@ var MessageBox = React.createClass({
 
   render: function() {
     return (
-      <div className="col-md-9">
+      <div id="messages" className="col-xs-9">
         <MessageList data={this.state.messages} />
-        <MessageForm />
+        <div className="footer">
+          <MessageForm />
+        </div>
       </div>
     );
   }
