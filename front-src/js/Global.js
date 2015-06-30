@@ -5,13 +5,12 @@ import MessageBox from './MessageBox';
 var GlobalBox = React.createClass({
   render: function() {
     return (
-      <div className="container-fuild">
+      <div className="container">
         <div className="row">
-          <div id="panel" className="col-md-3 no-float">
+          <div id="panel" className="col-md-3">
             <h3><i className="fa fa-bars"></i> Channels :</h3>
             <Channel url="/api/channel/" />
           </div>
-
           <MessageBox />
         </div>
       </div>
@@ -20,7 +19,3 @@ var GlobalBox = React.createClass({
 });
 
 module.exports = GlobalBox;
-
-// Keeping Users list
-// <h3><i className="fa fa-user"></i> Users :</h3>
-// <Channel url="/users" />

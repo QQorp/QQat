@@ -7,7 +7,7 @@ var Message = React.createClass({
         <h3 className="messageAuthor" >
           {this.props.author}
         </h3>
-        { this.props.children }
+        {this.props.children}
       </div>
     );
   }

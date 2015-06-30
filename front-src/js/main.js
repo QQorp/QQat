@@ -1,4 +1,4 @@
 import React from 'react';
-import GlobalBox from './GlobalBox';
+import Global from './Global';
 
-React.render(<GlobalBox />, document.body);
+React.render(<Global />, document.getElementById('Main'));

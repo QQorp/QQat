@@ -1,33 +1,31 @@
 import React from 'react';
-import ChannelsAction from './ChannelsAction';
+import GlobalAction from './GlobalAction';
+import GlobalStore from './GlobalStore';
 
 var Channel = React.createClass({
   getInitialState: function() {
-    return {data: []};
-  },
-
-  handleClick: function(id) {
-    ChannelsAction.pushIdChannel(id)
+    return {
+      data : []
+    };
   },
 
   componentDidMount: function() {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      cache: false,
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
+    GlobalStore.onChannelsLoaded = this.onChannelsLoaded;
+    GlobalAction.loadChannels();
   },
-  
+
+  onChannelsLoaded: function(channels) {
+    this.setState({'data': channels})
+  },
+
+  handleClick: function(channelUID) {
+    GlobalAction.selectChannel(channelUID);
+  },
+
   render: function() {
     var ChannelNode = this.state.data.map(function(channel){
       return (
-        <li onClick={this.handleClick.bind(this, channel.ChannelUID)} key={channel.ChannelUID} >
+        <li onClick={this.handleClick.bind(this, channel.ChannelUID)} key={channel.ChannelUID}>
           {channel.ChannelName}
         </li>
       );
