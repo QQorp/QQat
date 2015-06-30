@@ -1,10 +1,5 @@
 FROM golang:1.4.2
 
-# Install NPM
-RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
-RUN apt-get install -y nodejs
-RUN curl -L https://www.npmjs.com/install.sh | sh
-
 # Moving to directory
 WORKDIR $GOPATH/src/github.com/QQorp/QQat/
 
@@ -18,10 +13,6 @@ ADD ./main.go $GOPATH/src/github.com/QQorp/QQat/main.go
 RUN go get -t -d -v ./...
 # Getting bee
 RUN go get github.com/beego/bee
-# Adding package.json
-ADD ./package.json $GOPATH/src/github.com/QQorp/QQat/package.json
-# Installing npm dependencies
-RUN npm install
 
 # Importing all files
 ADD . $GOPATH/src/github.com/QQorp/QQat/
@@ -29,9 +20,7 @@ ADD . $GOPATH/src/github.com/QQorp/QQat/
 # Building application
 RUN go build -v
 
-
-
-# Binding entrypoint
+# Binding entrypoint
 ENTRYPOINT cd $GOPATH/src/github.com/QQorp/QQat && $GOPATH/bin/bee run
 
 # Exposing port
