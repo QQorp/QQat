@@ -122,6 +122,142 @@ func (this *FakeChannelController) GetAllMessages() {
 			Content: "C",
 		}
 		messages = append(messages, message)
+		message = &Message{
+			Sender:  "A",
+			Content: "A",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "B",
+			Content: "B",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "C",
+			Content: "C",
+		}
+		messages = append(messages, message)
+		message = &Message{
+			Sender:  "A",
+			Content: "A",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "B",
+			Content: "B",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "C",
+			Content: "C",
+		}
+		messages = append(messages, message)
+		message = &Message{
+			Sender:  "A",
+			Content: "A",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "B",
+			Content: "B",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "C",
+			Content: "C",
+		}
+		messages = append(messages, message)
+		message = &Message{
+			Sender:  "A",
+			Content: "A",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "B",
+			Content: "B",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "C",
+			Content: "C",
+		}
+		messages = append(messages, message)
+		message = &Message{
+			Sender:  "A",
+			Content: "A",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "B",
+			Content: "B",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "C",
+			Content: "C",
+		}
+		messages = append(messages, message)
+		message = &Message{
+			Sender:  "A",
+			Content: "A",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "B",
+			Content: "B",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "C",
+			Content: "C",
+		}
+		messages = append(messages, message)
+		message = &Message{
+			Sender:  "A",
+			Content: "A",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "B",
+			Content: "B",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "C",
+			Content: "C",
+		}
+		messages = append(messages, message)
+		message = &Message{
+			Sender:  "A",
+			Content: "A",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "B",
+			Content: "B",
+		}
+		messages = append(messages, message)
+
+		message = &Message{
+			Sender:  "C",
+			Content: "C",
+		}
+		messages = append(messages, message)
 	} else if uid == "BB-BB" {
 		var message *Message
 		message = &Message{
