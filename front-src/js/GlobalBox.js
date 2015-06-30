@@ -9,9 +9,7 @@ var GlobalBox = React.createClass({
         <div className="row">
           <div id="panel" className="col-md-3 no-float">
             <h3><i className="fa fa-bars"></i> Channels :</h3>
-            <Channel url="/channels/" />
-            <h3><i className="fa fa-user"></i> Users :</h3>
-            <Channel url="/users" />
+            <Channel url="/api/channel/" />
           </div>
 
           <MessageBox />
@@ -22,3 +20,7 @@ var GlobalBox = React.createClass({
 });
 
 module.exports = GlobalBox;
+
+// Keeping Users list
+// <h3><i className="fa fa-user"></i> Users :</h3>
+// <Channel url="/users" />
