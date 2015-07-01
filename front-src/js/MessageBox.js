@@ -2,8 +2,11 @@ import React from 'react';
 import GlobalStore from './GlobalStore';
 import MessageList from './MessageList';
 import MessageForm from './MessageForm';
+import LocalStorageMixin from 'react-localstorage';
 
 var MessageBox = React.createClass({
+  mixins: [LocalStorageMixin],
+
   getInitialState: function() {
     return {
       messages: []

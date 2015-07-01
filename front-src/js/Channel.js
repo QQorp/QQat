@@ -1,8 +1,11 @@
 import React from 'react';
 import GlobalAction from './GlobalAction';
 import GlobalStore from './GlobalStore';
+import LocalStorageMixin from 'react-localstorage';
 
 var Channel = React.createClass({
+  mixins: [LocalStorageMixin],
+
   getInitialState: function() {
     return {
       data : []

@@ -25,10 +25,14 @@ var GlobalStore = {
     });
   },
 
-  setChannel: function(new_channel_name) {
+  setCurrentChannel: function(new_channel_name) {
     if(new_channel_name !== this.state.currentChannel) {
       this.state.currentChannel = new_channel_name;
     }
+  },
+
+  getCurrentChannel: function() {
+    return this.state.currentChannel;
   },
 
   loadMessages: function() {

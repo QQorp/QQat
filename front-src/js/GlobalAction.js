@@ -6,8 +6,10 @@ var GlobalAction = {
   },
 
   selectChannel: function(new_channel_name) {
-    GlobalStore.setChannel(new_channel_name);
-    GlobalStore.loadMessages();
+    if(GlobalStore.getCurrentChannel() != new_channel_name) {
+      GlobalStore.setCurrentChannel(new_channel_name);
+      GlobalStore.loadMessages();
+    }
   }
 };
 
