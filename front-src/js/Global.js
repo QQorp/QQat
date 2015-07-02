@@ -2,7 +2,7 @@ import React from 'react';
 import Channel from './Channel';
 import MessageBox from './MessageBox';
 
-var GlobalBox = React.createClass({
+var Global = React.createClass({
   render: function() {
     return (
       <div id="main-container" className="container-fluid">
@@ -18,4 +18,4 @@ var GlobalBox = React.createClass({
   }
 });
 
-module.exports = GlobalBox;
+module.exports = Global;

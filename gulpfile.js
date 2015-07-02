@@ -6,6 +6,7 @@ var webpack = require("webpack");
 var gutil = require("gulp-util");
 var purify = require('gulp-purifycss');
 var uglifycss = require('gulp-uglifycss');
+var shell = require('gulp-shell')
 
 gulp.task('icons', function() {
     return gulp.src('./node_modules/font-awesome/fonts/**.*')
@@ -61,6 +62,16 @@ gulp.task('watch', function () {
   gulp.watch(['./static/**/*.js', './views/**/*.tpl', './front-src/sass/**/*.scss'], ['sass']);
   gulp.watch('./front-src/js/**/*.js', ['webpack']);
 });
+
+gulp.task('run:beego', shell.task([
+  'bee run'
+]))
+
+gulp.task('run:goconvey', ['dev'], shell.task([
+  'cd $GOPATH/src/github.com/QQorp/QQat/tests/ && $GOPATH/bin/goconvey'
+]))
+
+gulp.task('run', ['run:beego', 'run:goconvey', 'dev'])
 
 gulp.task('dev', ['icons', 'sass', 'webpack', 'watch'])
 

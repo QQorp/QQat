@@ -1,14 +1,12 @@
 import React from 'react';
 import GlobalAction from './GlobalAction';
 import GlobalStore from './GlobalStore';
-import LocalStorageMixin from 'react-localstorage';
 
 var Channel = React.createClass({
-  mixins: [LocalStorageMixin],
 
   getInitialState: function() {
     return {
-      data : []
+      channels : []
     };
   },
 
@@ -18,7 +16,7 @@ var Channel = React.createClass({
   },
 
   onChannelsLoaded: function(channels) {
-    this.setState({'data': channels})
+    this.setState({'channels': channels})
   },
 
   handleClick: function(channelUID) {
@@ -26,7 +24,7 @@ var Channel = React.createClass({
   },
 
   render: function() {
-    var ChannelNode = this.state.data.map(function(channel){
+    var ChannelNode = this.state.channels.map(function(channel){
       return (
         <li onClick={this.handleClick.bind(this, channel.ChannelUID)} key={channel.ChannelUID}>
           {channel.ChannelName}
