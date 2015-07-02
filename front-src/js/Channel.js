@@ -26,13 +26,13 @@ var Channel = React.createClass({
   render: function() {
     var ChannelNode = this.state.channels.map(function(channel){
       return (
-        <li onClick={this.handleClick.bind(this, channel.ChannelUID)} key={channel.ChannelUID}>
+        <li className="channel" onClick={this.handleClick.bind(this, channel.ChannelUID)} key={channel.ChannelUID}>
           {channel.ChannelName}
         </li>
       );
     }, this);
     return (
-      <div className="channels">
+      <div>
         <ul>
           {ChannelNode}
         </ul>
