@@ -54,15 +54,11 @@ cd $GOPATH/src/github.com/QQorp/QQat
 npm install
 ```
 You can now edit files, the architecture looks like that :
-- src (development folder)
-  - css (CSS files)
-  - sass (SCSS files that will be preprossessed)
+- front-src (development folder)
   - js (JS files, with React-components)
+  - sass (SCSS files that will be preprossessed)
 
-Those files will be concatened to the prod folder. **css/sass** files to **prod/css/main.css**. And **js** files to **prod/js/bundle.js**. Javascript libraries are in the **prod/js/libs** folder.
-
-List of Javascript libraries :
-- ReactJS
+While you are developping you can type de command ```gulp run``` to run all the services in dev. Before committing you should do ```gulp``` to compile all assets in production mod.
 
 ## Technologies
 - Back-end
@@ -73,8 +69,10 @@ List of Javascript libraries :
 - Front-end
   - React
   - Bootstrap
+  - PeerJS
 - Front-end packaging
   - Webpack
+  - Gulp
 
 ## DevOps
 - CircleCI
