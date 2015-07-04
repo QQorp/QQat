@@ -1,10 +1,13 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './front-src/js/main.js',
+  entry: {
+    main: './front-src/js/main.js',
+    welcome: './front-src/js/welcome.js'
+  },
   output: {
     path: __dirname + '/static/js/',
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   module: {
     loaders: [

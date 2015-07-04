@@ -9,6 +9,6 @@
   <div id="Main"></div>
 
   <!-- Main Script -->
-  <script src="/static/js/bundle.js"></script>
+  <script src="/static/js/main.bundle.js"></script>
 </body>
 </html>
