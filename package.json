@@ -19,6 +19,7 @@
     "node-libs-browser": "^0.5.2",
     "react": "^0.13.3",
     "react-localstorage": "^0.2.4",
+    "scroll-to-element": "0.0.2",
     "webpack": "^1.9.11"
   },
   "scripts": {
