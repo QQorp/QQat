@@ -87,7 +87,7 @@ func TestChannel(t *testing.T) {
 				So(len(channels), ShouldEqual, 1)
 				So(err, ShouldBeNil)
 			})
-			Convey("Getting all channels with 5 channels created, should return array with 5 elements", func() {
+			SkipConvey("Getting all channels with 5 channels created, should return array with 5 elements", func() {
 				var nbElements = 5
 				for index := 0; index < nbElements; index++ {
 					models.CreateChannel("lel")
@@ -97,7 +97,7 @@ func TestChannel(t *testing.T) {
 				So(len(channels), ShouldEqual, nbElements)
 				So(err, ShouldBeNil)
 			})
-			Convey("Getting all channels with 500 channels created, should return array with 500 elements", func() {
+			SkipConvey("Getting all channels with 500 channels created, should return array with 500 elements", func() {
 				var nbElements = 500
 				for index := 0; index < nbElements; index++ {
 					models.CreateChannel("lel")
@@ -107,7 +107,7 @@ func TestChannel(t *testing.T) {
 				So(len(channels), ShouldEqual, nbElements)
 				So(err, ShouldBeNil)
 			})
-			Convey("Getting all channels with 1000 channels created, should return array with 1000 elements", func() {
+			SkipConvey("Getting all channels with 1000 channels created, should return array with 1000 elements", func() {
 				var nbElements = 1000
 				for index := 0; index < nbElements; index++ {
 					models.CreateChannel("lel")
