@@ -11,7 +11,7 @@ func init() {
 	ns := beego.NewNamespace("/api",
 		beego.NSNamespace("/channel",
 			beego.NSInclude(
-				&controllers.FakeChannelController{},
+				&controllers.ChannelController{},
 			),
 		),
 	)

@@ -16,12 +16,21 @@ type HelloResponse struct {
 
 // @Title Post
 // @Description create Channel
-// @Param	body		body 	models.Channel	true		"body for Channel content"
-// @Success 200 {int} models.Channel.Id
-// @Failure 403 body is empty
-// @router / [post]
-func (c *ChannelController) Post() {
+// @Success 200 {int} models.Channel.ChannelUID
+// @router /:name [post]
+func (this *ChannelController) Post() {
+	name := this.GetString(":name")
+	if name == "" {
+		this.CustomAbort(403, "Channel name cannot be empty")
+	}
 
+	channel, err := models.CreateChannel(name)
+	if err != nil {
+		this.CustomAbort(403, err.Error())
+	}
+
+	this.Data["json"] = channel.ChannelUID
+	this.ServeJson()
 }
 
 // @Title Get
