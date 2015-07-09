@@ -36,9 +36,9 @@ var MessageBox = React.createClass({
     return (
       <div id="messages" className="col-xs-9">
         {
-          this.state.messages[this.state.currentChannel] ?
+          this.state.messages[this.state.currentChannel] && this.state.messages[this.state.currentChannel].length > 0 ?
           (<MessageList data={this.state.messages[this.state.currentChannel]} />)
-          : (<div />)
+          : (<h1>No messages for the moment..</h1>)
         }
         <div className="footer">
           <MessageForm />

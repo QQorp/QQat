@@ -23,6 +23,22 @@ var Channel = React.createClass({
     GlobalAction.selectChannel(channelUID);
   },
 
+  createChannel: function () {
+    var name = window.prompt();
+    $.ajax({
+      type: "POST",
+      url: '/api/channel/' + name,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        GlobalStore.loadChannels();
+      },
+      error: function(xhr, status, err) {
+        console.log(GlobalStore.state);
+      }
+    });
+  },
+
   render: function() {
     var ChannelNode = this.state.channels.map(function(channel){
       return (
@@ -35,6 +51,9 @@ var Channel = React.createClass({
       <div>
         <ul>
           {ChannelNode}
+          <li className="channel" >
+            <i onClick={this.createChannel} className="fa fa-plus fa-2x"></i>
+          </li>
         </ul>
       </div>
     );

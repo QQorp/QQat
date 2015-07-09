@@ -56,13 +56,13 @@ var GlobalStore = {
   },
 
   save: function() {
-    console.log("Saving data...");
-    console.log("Saving data... DONE!");
+    // console.log("Saving data...");
+    // console.log("Saving data... DONE!");
   },
 
   load: function() {
-    console.log("Loading data...");
-    console.log("Loading data... DONE!");
+    // console.log("Loading data...");
+    // console.log("Loading data... DONE!");
   }
 
 };
